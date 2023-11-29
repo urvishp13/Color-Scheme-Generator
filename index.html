@@ -4,29 +4,75 @@
 <head>
     <title>Color Scheme Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet"> 
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
     <main>
-        <input type="color">
+        <div class="container">
+            <form>
+                <input type="color">
+                
+                <div class="custom-select">
+                    <button type="button" id="scheme-mode-selector-btn" class="btn scheme-mode-selector">
+                        <span class="selected-value">Monochrome</span>
+                        <span class="arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                                <path d="M15 1L8 8L1 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <ul id="scheme-dropdown" class="scheme-dropdown">
+                        <li>
+                            <input type="radio" name="mode" id="monochrome">
+                            <label for="monochrome">Monochrome</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="mode" id="monochrome-dark">
+                            <label for="monochrome-dark">Monochrome-dark</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="mode" id="monochrome-light">
+                            <label for="monochrome-light">Monochrome-light</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="mode" id="analogic">
+                            <label for="analogic">Analogic</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="mode" id="complement">
+                            <label for="complement">Complement</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="mode" id="analogic-complement">
+                            <label for="analogic-complement">Analogic-complement</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="mode" id="triad">
+                            <label for="triad">Triad</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="mode" id="quad">
+                            <label for="quad">Quad</label>
+                        </li>
+                    </ul>
+                </div>
         
-        <select>
-            <option value="monochrome">Monochrome</option>
-            <option value="monochrome-dark">Monochrome-dark</option>
-            <option value="monochrome-light">Monochrome-light </option>
-            <option value="analogic">Analogic</option>
-            <option value="complement">Complement</option>
-            <option value="analogic-complement">Analogic-complement</option>
-            <option value="triad">Triad</option>
-            <option value="quad">Quad</option>
-        </select>
+                <button id="get-color-scheme-btn" class="btn get-color-scheme">Get color scheme</button>
+            </form>
 
-        <button id="get-color-scheme-btn" class="btn get-color-scheme">Get color scheme</button>
-
-        <div>
-            <!-- dynamically render colors of color scheme in here -->
+            <div>
+                <!-- dynamically render colors of color scheme in here -->
+            </div>
         </div>
     </main>
+
+    <script src="assets/javascript/script.js"></script>
 </body>
 
 </html>
