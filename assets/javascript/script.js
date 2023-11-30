@@ -16,6 +16,7 @@ schemeModeSelectorBtn.addEventListener("click", function() {
 
 schemeOptions.forEach(option => option.addEventListener("click", function() {
     selectedScheme.textContent = option.textContent
+    schemeModesDropdown.classList.remove("show")
 }))
 
 // when the label is clicked
