@@ -2,13 +2,8 @@ const schemeModeSelectorBtn = document.getElementById("scheme-mode-selector-btn"
 const schemeModesDropdown = document.getElementById("scheme-dropdown")
 const schemeOptions = document.querySelectorAll(".option")
 const selectedScheme = document.getElementById("selected-value")
-const checkMark = `
-    <span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.7071 5.29289C17.0976 5.68342 17.0976 6.31658 16.7071 6.70711L8.70711 14.7071C8.31658 15.0976 7.68342 15.0976 7.29289 14.7071L3.29289 10.7071C2.90237 10.3166 2.90237 9.68342 3.29289 9.29289C3.68342 8.90237 4.31658 8.90237 4.70711 9.29289L8 12.5858L15.2929 5.29289C15.6834 4.90237 16.3166 4.90237 16.7071 5.29289Z" fill="#4F46E5"/>
-        </svg>
-    </span>
-`
+let selectedRadio = document.querySelector('input[type="radio"]:checked') // get the radio selected by default on startup
+console.log(selectedRadio)
 
 schemeModeSelectorBtn.addEventListener("click", function() {
     schemeModesDropdown.classList.toggle("show")
@@ -19,7 +14,17 @@ schemeOptions.forEach(option => option.addEventListener("click", function() {
     schemeModesDropdown.classList.remove("show")
 }))
 
-// when the label is clicked
-    // add a checkmark to the right of it
-// when a different label is clicked
-    // move the checkmark to that label
+// when a new scheme option is clicked, move the checkmark to that option
+schemeModesDropdown.addEventListener("change", function() {
+    // get the label of the previously selected option
+    const radioLabel = selectedRadio.nextElementSibling
+    // extract the checkmark from that option
+    const checkmark = radioLabel.children[0]
+    // remove it from that option
+    radioLabel.removeChild(checkmark)
+    // get the new selected option
+    selectedRadio = document.querySelector('input[type="radio"]:checked')
+    const newRadioLabel = selectedRadio.nextElementSibling
+    // add the checkmark next to the new selected option
+    newRadioLabel.appendChild(checkmark)
+})
