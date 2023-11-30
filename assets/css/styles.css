@@ -37,7 +37,14 @@ form {
     gap: .5em;
 }
 
-input {
+input.color-wheel,
+.btn.scheme-mode-selector,
+label,
+.btn.get-color-scheme {
+    cursor: pointer;
+}
+
+input.color-wheel {
     grid-area: color-wheel;
     height: 100%;
     border: 0.5px solid var(--clr-grey);
@@ -88,7 +95,6 @@ button {
     justify-content: space-between; /* for the checkmark to add for selection */
     padding: 0.8125rem 0.6875rem;
     width: 100%;
-    cursor: pointer;
 }
 
 .scheme-dropdown li:hover {

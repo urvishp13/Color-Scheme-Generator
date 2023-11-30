@@ -3,7 +3,7 @@ const schemeModesDropdown = document.getElementById("scheme-dropdown")
 const schemeOptions = document.querySelectorAll(".option")
 const selectedScheme = document.getElementById("selected-value")
 let selectedRadio = document.querySelector('input[type="radio"]:checked') // get the radio selected by default on startup
-console.log(selectedRadio)
+const form = document.getElementById("scheme-picker-form")
 
 schemeModeSelectorBtn.addEventListener("click", function() {
     schemeModesDropdown.classList.toggle("show")
@@ -27,4 +27,9 @@ schemeModesDropdown.addEventListener("change", function() {
     const newRadioLabel = selectedRadio.nextElementSibling
     // add the checkmark next to the new selected option
     newRadioLabel.appendChild(checkmark)
+})
+
+// don't wan't chosen scheme option to go back to default upon submission
+form.addEventListener('submit', function(e) {
+    e.preventDefault()
 })
