@@ -20,7 +20,7 @@
                 
                 <div class="custom-select">
                     <button type="button" id="scheme-mode-selector-btn" class="btn scheme-mode-selector">
-                        <span class="selected-value">Monochrome</span>
+                        <span id="selected-value" class="selected-value">Monochrome</span>
                         <span class="arrow">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
                                 <path d="M15 1L8 8L1 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -28,35 +28,35 @@
                         </span>
                     </button>
                     <ul id="scheme-dropdown" class="scheme-dropdown">
-                        <li>
+                        <li class="option">
                             <input type="radio" name="mode" id="monochrome">
                             <label for="monochrome">Monochrome</label>
                         </li>
-                        <li>
+                        <li class="option">
                             <input type="radio" name="mode" id="monochrome-dark">
                             <label for="monochrome-dark">Monochrome-dark</label>
                         </li>
-                        <li>
+                        <li class="option">
                             <input type="radio" name="mode" id="monochrome-light">
                             <label for="monochrome-light">Monochrome-light</label>
                         </li>
-                        <li>
+                        <li class="option">
                             <input type="radio" name="mode" id="analogic">
                             <label for="analogic">Analogic</label>
                         </li>
-                        <li>
+                        <li class="option">
                             <input type="radio" name="mode" id="complement">
                             <label for="complement">Complement</label>
                         </li>
-                        <li>
+                        <li class="option">
                             <input type="radio" name="mode" id="analogic-complement">
                             <label for="analogic-complement">Analogic-complement</label>
                         </li>
-                        <li>
+                        <li class="option">
                             <input type="radio" name="mode" id="triad">
                             <label for="triad">Triad</label>
                         </li>
-                        <li>
+                        <li class="option">
                             <input type="radio" name="mode" id="quad">
                             <label for="quad">Quad</label>
                         </li>
