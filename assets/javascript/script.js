@@ -3,14 +3,27 @@ const schemeModesDropdown = document.getElementById("scheme-dropdown")
 const schemeOptions = document.querySelectorAll(".option")
 const selectedScheme = document.getElementById("selected-value")
 let selectedRadio = document.querySelector('input[type="radio"]:checked') // get the radio selected by default on startup
-const form = document.getElementById("scheme-picker-form")
 
+const form = document.getElementById("scheme-picker-form")
+const colorWheel = document.getElementById("color-wheel")
+
+let colorChosen = colorWheel.value.split("#")[1]
+let schemeChosen = selectedScheme.textContent.toLowerCase()
+
+// get the color selected after closing the color wheel pop-up
+colorWheel.addEventListener("change", function(e) {
+    colorChosen = e.target.value.split("#")[1]
+})
+
+// show/hide the scheme modes dropdown
 schemeModeSelectorBtn.addEventListener("click", function() {
     schemeModesDropdown.classList.toggle("show")
 })
 
+// show the selected scheme from the dropdown in the UI display once the dropdown is hidden
 schemeOptions.forEach(option => option.addEventListener("click", function() {
     selectedScheme.textContent = option.textContent
+    schemeChosen = selectedScheme.textContent.trim().toLowerCase()
     schemeModesDropdown.classList.remove("show")
 }))
 
@@ -29,7 +42,16 @@ schemeModesDropdown.addEventListener("change", function() {
     newRadioLabel.appendChild(checkmark)
 })
 
-// don't wan't chosen scheme option to go back to default upon submission
+// when all the inputs are submitted and a color scheme is wanted back
 form.addEventListener('submit', function(e) {
+    // don't wan't chosen scheme option to go back to default upon submission
     e.preventDefault()
+    // GET the color scheme from the ColorAPI
+    // get the seed colot and get the scheme type
+    console.log({colorChosen}, {schemeChosen})
+    // send these two qualifications to the API
+    fetch(`https://www.thecolorapi.com/scheme?hex=${colorChosen}&mode=${schemeChosen}`)
+        .then(res => res.json())
+        .then(palette => console.log(palette))
+
 })
