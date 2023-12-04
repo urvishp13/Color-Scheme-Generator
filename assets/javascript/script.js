@@ -10,6 +10,9 @@ const colorWheel = document.getElementById("color-wheel")
 let colorChosen = colorWheel.value.split("#")[1]
 let schemeChosen = selectedScheme.textContent.toLowerCase()
 
+const schemeColorSlots = document.getElementsByClassName("color")
+const schemeColorHexes = document.getElementsByClassName("hex")
+
 // get the color selected after closing the color wheel pop-up
 colorWheel.addEventListener("change", function(e) {
     colorChosen = e.target.value.split("#")[1]
@@ -47,11 +50,17 @@ form.addEventListener('submit', function(e) {
     // don't wan't chosen scheme option to go back to default upon submission
     e.preventDefault()
     // GET the color scheme from the ColorAPI
-    // get the seed colot and get the scheme type
-    console.log({colorChosen}, {schemeChosen})
-    // send these two qualifications to the API
+    // send the seed color and the scheme type to the API
     fetch(`https://www.thecolorapi.com/scheme?hex=${colorChosen}&mode=${schemeChosen}`)
         .then(res => res.json())
-        .then(palette => console.log(palette))
-
+        .then(palette => {
+            console.log(palette.colors)
+            const colors = palette.colors
+            // loop through all the slots, hexes, and colors
+            for (let i = 0; i < colors.length; i++) {
+                // fill corresponding slot and hex with corresponding color and hex code
+                schemeColorSlots[i].style.backgroundColor = colors[i].hex.value
+                schemeColorHexes[i].textContent = colors[i].hex.value
+            }
+        })
 })
