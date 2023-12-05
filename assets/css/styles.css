@@ -24,7 +24,7 @@ body {
     width: 90%;
     max-width: 34.375rem;
     height: 34.375rem;
-    margin: 0 auto;
+    margin: 1em auto;
 }
 
 /* ////////// FORM ////////////// */
@@ -127,20 +127,28 @@ button {
     grid-template-rows: repeat(5, 1fr);
     width: 100%;
     height: 100%;
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 
 .slot {
     display: flex;
     align-items: center;
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
     border: 2px solid var(--clr-grey);
     border-radius: 3rem;
 }
 
 .hex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: 100%;
     margin-left: auto;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    cursor: pointer;
 }
 
 .color {
