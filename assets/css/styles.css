@@ -140,6 +140,7 @@ button {
 }
 
 .hex {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,8 +159,28 @@ button {
     border-radius: 3rem;
 }
 
+/* ////////////// TOOLTIP ////////////////// */
+
+.tooltip {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min-content;
+    padding: .3em .75em;
+    border-radius: 1rem;
+    background-color: green;
+    box-shadow: 0px 0px 1px 1px green;
+    color: var(--clr-white);
+    opacity: 0;
+}
+
 /* //////////// UTILITY CLASSES //////////// */
 
 .show {
     visibility: visible;
+}
+
+.show-opacity {
+    opacity: 1;
 }

@@ -13,6 +13,8 @@ let schemeChosen = selectedScheme.textContent.toLowerCase()
 const schemeColorSlots = document.getElementsByClassName("color")
 const schemeColorHexes = document.getElementsByClassName("hex")
 
+const tooltip = document.getElementById("tooltip")
+
 function fetchColorScheme(e) {
     // don't wan't chosen scheme option to go back to default upon submission
     e.preventDefault()
@@ -73,3 +75,14 @@ form.addEventListener('submit', fetchColorScheme)
 window.addEventListener("load", fetchColorScheme)
 
 // make the hex codes clickable so can copy their value
+Array.from(schemeColorHexes).forEach(hexEl => hexEl.addEventListener("click", function() {
+    // copy the hex code
+    navigator.clipboard.writeText(hexEl.textContent)
+    // show a "Copied" info tooltip
+    hexEl.appendChild(tooltip)
+    tooltip.classList.add("show-opacity")
+    // make tooltip disappear after 2s
+    setTimeout(function() {
+        tooltip.classList.remove("show-opacity")
+    }, 1750)
+}))
