@@ -91,6 +91,7 @@ button {
     border: 1px solid var(--clr-grey);
     list-style-type: none;
     visibility: hidden;
+    z-index: 1;
 }
 
 .scheme-dropdown label {

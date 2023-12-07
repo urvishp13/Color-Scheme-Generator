@@ -26,7 +26,6 @@ function fetchColorScheme(e) {
 }
 
 function drawColorScheme(palette) {
-    console.log(palette.colors)
     const colors = palette.colors
     // loop through all the slots, hexes, and colors
     for (let i = 0; i < colors.length; i++) {
