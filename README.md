@@ -21,8 +21,8 @@ Fetch information from an API and use its data to build an application.
 
 ### Screenshot
 
-![visual of the app in Desktop View](assets/snapshots/image.png) 
-![visual of the app in Mobile View](assets/snapshots/image-1.png)
+![visual of the app in Desktop View](assets/snapshots/desktop-view.png) 
+![visual of the app in Mobile View](assets/snapshots/mobile-view.png)
 
 ### Links
 
